@@ -73,7 +73,6 @@ jobs:
         with:
           path: ${{ env.repoName }}
           ref: ${{ env.ref }}
-          token: ${{ env.gitToken }}
       - name: Checkout arm-ttk
         uses: actions/checkout@v2
         with:
