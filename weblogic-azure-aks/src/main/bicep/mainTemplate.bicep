@@ -692,22 +692,6 @@ module wlsDomainWithCustomSSLDeployment 'modules/setupWebLogicCluster.bicep' = i
   ]
 }
 
-/*
- * Update tags to save key vault name and storage account name that are used for current configuration
-*/
-resource applyTags 'Microsoft.Resources/tags@${azure.apiVersionForTags}' = {
-  name: 'default'
-  properties: {
-    tags: {
-      '${name_tagNameForKeyVault}': name_keyVaultName
-      '${name_tagNameForStorageAccount}': (const_bCreateStorageAccount || const_hasStorageAccount) ? name_storageAccountName : ''
-    }
-  }
-  dependsOn: [
-    appgwSecretDeployment
-  ]
-}
-
 module networkingDeployment 'modules/networking.bicep' = if (const_enableNetworking) {
   name: 'networking-deployment'
   params: {
