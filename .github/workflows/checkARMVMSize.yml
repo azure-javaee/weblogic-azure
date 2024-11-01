@@ -108,5 +108,5 @@ jobs:
         gh pr create --title "Update ARM VM sizes" \
             --body "Automatic update of ARM VM sizes based on latest changes" \
             --reviewer edburns,galiacheng \
-            --base main \
+            --base origin/main \
             --head ${branchName}
